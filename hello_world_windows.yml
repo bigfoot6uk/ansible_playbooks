@@ -7,7 +7,10 @@
     ansible_connection: 'winrm'
     ansible_winrm_transport: 'ssl'
     ansible_winrm_server_cert_validation: 'ignore'
+    ansible_user: "{{ winrm_user }}"
+    ansible_password: "{{ winrm_password }}"
 
 
   tasks:
-  - debug: msg="Hello, world!"
+  - name: ping 
+    win_ping:
